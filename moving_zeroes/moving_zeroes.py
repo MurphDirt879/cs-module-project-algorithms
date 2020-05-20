@@ -7,7 +7,6 @@ Returns: a List of integers
 
 def moving_zeroes(arr):
     # Your code here
-    zeros = 0 
 
     for n in arr:
         if n == 0:
