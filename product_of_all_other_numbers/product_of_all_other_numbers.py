@@ -2,20 +2,30 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def product_of_all_other_numbers(arr):
-    # Your code here
+def product_of_all_other_numbers(arr):  
+  
+    n = len(arr)
     
-    finalArray = [0] * len(arr)
+    if(n == 1): 
+        return
+          
+    left = [0]*n  
+    right = [0]*n  
+    product = [0]*n  
+  
+    left[0] = 1
+    right[n - 1] = 1
+  
+    for i in range(1, n):  
+        left[i] = arr[i - 1] * left[i - 1]  
+  
+    for j in range(n-2, -1, -1):  
+        right[j] = arr[j + 1] * right[j + 1]  
+  
+    for i in range(n):  
+        product[i] = left[i] * right[i]  
     
-    for i in range(0, len(arr)):
-        product = 1
-        for n in range(0, len(arr)):
-            if i != n:
-                product *= arr[n]
-        finalArray[i] = product
-    
-    return finalArray
-
+    return product
 
 
 if __name__ == '__main__':
