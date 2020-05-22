@@ -2,10 +2,18 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+
+
+
 def moving_zeroes(arr):
     # Your code here
 
-    pass
+    for n in arr:
+        if n == 0:
+            arr.remove(n)
+            arr.append(n)
+    return arr
+
 
 
 if __name__ == '__main__':
